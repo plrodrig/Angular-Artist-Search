@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Fixed glitch with message replacement and remove link styles and put name of artist in righthandside-->
+
+<html ng-app="music">
+<head>
+	<title>Music</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="container" ng-controller="MusicController as vm">
+	<div class="page-header">
+		<h1>Music Search</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<h4>Artists</h4>
+			<p ng-if="vm.songList.length == 0">Please select an artist</p>
+			<div>
+				<!-- price breakdown here -->
+			</div>
+			<div>
+				<div>
+					<div ng-repeat="artist in vm.artists">
+						<a href="#" ng-click="vm.listSongs(artist)">
+							<p>{{artist.artistName}}</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<h4>Artist Songs</h4>
+			<div>
+				<ul>
+					<li ng-repeat="song in vm.songList">
+						{{song.title}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
